@@ -57,22 +57,13 @@ def show_all(args, contacts):
         contact_strings.append("No contacts found.")
     return contact_strings
 
-COMMAND_HELLO = "hello"
-COMMAND_ADD = "add"
-COMMAND_CHANGE = "change"
-COMMAND_REMOVE = "remove"
-COMMAND_PHONE = "phone"
-COMMAND_ALL = "all"
-COMMAND_CLOSE = "close"
-COMMAND_EXIT = "exit"
-
 command_functions = {
-    COMMAND_HELLO: hello_command,
-    COMMAND_ADD: add_contact,
-    COMMAND_CHANGE: change_contact,
-    COMMAND_REMOVE: remove_contact,
-    COMMAND_PHONE: get_phone,
-    COMMAND_ALL: show_all,
+    "hello": hello_command,
+    "add": add_contact,
+    "change": change_contact,
+    "remove": remove_contact,
+    "phone": get_phone,
+    "all": show_all,
 }
 
 def main():
@@ -82,7 +73,7 @@ def main():
         user_input = input("Enter a command: ")
         command, args = parse_input(user_input)
 
-        if command in [COMMAND_CLOSE, COMMAND_EXIT]:
+        if command in ["close", "exit"]:
             print("Good bye!")
             break
         elif command in command_functions:
